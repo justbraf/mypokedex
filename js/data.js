@@ -59,7 +59,7 @@ let appendNavigation = (data) => {
         pokelist.add(opts, null);
     }
     pokelist.addEventListener("change", event => grabData(pokelist.options[pokelist.selectedIndex].value, "load"));
-    let defPokemon = pokelist.options[0].value;
+    grabData(pokelist.options[pokelist.selectedIndex].value, "load");
 
     if (data.previous != null) {
         let prevBtn = document.createElement("a");
@@ -80,7 +80,6 @@ let appendNavigation = (data) => {
         nextBtn.addEventListener("click", event => {
             event.preventDefault(); // prevents normal behaviour
             grabData(event.target.href, "navi");
-            grabData(defPokemon, "load");
         });
         parentNext.appendChild(nextBtn);
     }
